@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.6 on win32)" generated="2024-09-19T02:07:15.793594" rpa="false" schemaversion="5">
+<suite id="s1" name="Open 9Arm" source="C:\Users\user\OneDrive\เดสก์ท็อป\jest-testing\open_9arm.robot">
+<test id="s1-t1" name="Search Kasidit Wansut" line="8">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-09-19T02:07:15.919406" level="INFO">Opening browser 'chrome' to base url 'http://www.google.com'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-09-19T02:07:15.918261" elapsed="2.420246"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-09-19T02:07:18.340502" level="INFO">Typing text '9arm' into text field 'name=q'.</msg>
+<arg>name=q</arg>
+<arg>${name_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-19T02:07:18.339502" elapsed="0.051782"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2024-09-19T02:07:18.391284" level="INFO">Sending key(s) ('ENTER',) to name=q element.</msg>
+<msg time="2024-09-19T02:07:18.669428" level="INFO">Pressing special key ENTER to element.</msg>
+<msg time="2024-09-19T02:07:18.669428" level="INFO">Releasing special key ENTER.</msg>
+<arg>name=q</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2024-09-19T02:07:18.391284" elapsed="1.164966"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${name_input}</arg>
+<arg>10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-09-19T02:07:19.556250" elapsed="0.022875"/>
+</kw>
+<doc>ค้นหาคำว่า 9arm บน Google และคลิกผลลัพธ์ที่มีลิงก์ไปยัง YouTube</doc>
+<status status="PASS" start="2024-09-19T02:07:15.916676" elapsed="3.662449"/>
+</test>
+<test id="s1-t2" name="Click Kasidit Wansut" line="14">
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2024-09-19T02:07:19.586133" level="INFO">${link_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="519af7f38f8e087b6ba9715791381e8b", element="f.FEDE451EA6B14C55F543EEE5BE44B677.d.6B2DFE89FF799CEE8ED03D1F231C92C0.e.83")&gt;</msg>
+<var>${link_element}</var>
+<arg>xpath=//div[@class='yuRUbf']//a[contains(@href, 'youtube')]</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2024-09-19T02:07:19.580124" elapsed="0.006009"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-09-19T02:07:19.591585" level="INFO">${link_title} = </msg>
+<var>${link_title}</var>
+<arg>${link_element}</arg>
+<arg>title</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-09-19T02:07:19.586133" elapsed="0.005452"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-19T02:07:19.591585" level="INFO"/>
+<arg>${link_title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-19T02:07:19.591585" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-09-19T02:07:19.591585" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="519af7f38f8e087b6ba9715791381e8b", element="f.FEDE451EA6B14C55F543EEE5BE44B677.d.6B2DFE89FF799CEE8ED03D1F231C92C0.e.83")&gt;'.</msg>
+<arg>${link_element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-09-19T02:07:19.591585" elapsed="2.765703"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>YouTube</arg>
+<arg>10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-09-19T02:07:22.357288" elapsed="0.043743"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-09-19T02:07:22.410078" level="INFO">${page_title} = 9arm - YouTube</msg>
+<var>${page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-09-19T02:07:22.402645" elapsed="0.007433"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${page_title}</arg>
+<arg>${name_input}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-09-19T02:07:22.411078" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-19T02:07:26.411388" level="INFO">Slept 4 seconds.</msg>
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-19T02:07:22.411078" elapsed="4.000823"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-09-19T02:07:26.411901" elapsed="2.336156"/>
+</kw>
+<doc>open YouTube</doc>
+<status status="PASS" start="2024-09-19T02:07:19.580124" elapsed="9.167933"/>
+</test>
+<status status="PASS" start="2024-09-19T02:07:15.794666" elapsed="12.955229"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Open 9Arm">Open 9Arm</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
